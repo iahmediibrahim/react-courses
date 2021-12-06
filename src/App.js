@@ -5,15 +5,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/common/Header';
 import PageNotFound from './components/PageNotFound';
 import Courses from './components/courses/Courses';
+import ManageCourse from './components/courses/ManageCourse';
 function App() {
     return (
         <Router>
             <div id="app" className="container-fluid">
                 <Header />
                 <Routes>
-                    <Route exact path="/" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/courses" element={<Courses />} />
+                    <Route path="/course/:slug" element={<ManageCourse />} />
+                    <Route path="/course" element={<ManageCourse />} />
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </div>
