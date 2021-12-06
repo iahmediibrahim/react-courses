@@ -8,9 +8,15 @@ class Courses extends Component {
             title: 'Courses',
         },
     };
+
+    componentDidMount() {
+        this.props.actions.loadCourses();
+
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
+
         this.props.actions.createCourse(this.state.course);
     };
     handleChange = (e) => {
