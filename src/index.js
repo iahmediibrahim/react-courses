@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import configureStore from './redux/configureStore';
+import configureStore from './redux/configureStore.prod';
 import { Provider } from 'react-redux';
 const store = configureStore();
 ReactDOM.render(
