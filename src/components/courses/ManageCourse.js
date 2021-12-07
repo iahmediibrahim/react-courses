@@ -38,7 +38,7 @@ function ManageCourse({ initialCourse, courses, authors, loadCourses, loadAuthor
         saveCourse(course)
             .then(() => {
                 toast.success('Course saved.');
-                navigate(`/courses`);
+                navigate(`/react-courses/courses`);
             })
             .catch((err) => {
                 setSaving(false);
