@@ -22,7 +22,7 @@ const CourseList = ({ courses, onDeleteClick }) => (
                             </a>
                         </td>
                         <td>
-                            <Link to={'/course/' + course.slug}>{course.title}</Link>
+                            <Link to={'/react-courses/course/' + course.slug}>{course.title}</Link>
                         </td>
                         <td>{course.authorName}</td>
                         <td>{course.category}</td>
