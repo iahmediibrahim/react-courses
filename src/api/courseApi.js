@@ -1,5 +1,5 @@
 import { handleResponse, handleError } from './apiUtils';
-const baseUrl = 'http://localhost:3001/courses/';
+const baseUrl = 'https://my-json-server.typicode.com/iahmediibrahim/react-courses-json/courses/';
 
 export function getCourses() {
     return fetch(baseUrl).then(handleResponse).catch(handleError);
