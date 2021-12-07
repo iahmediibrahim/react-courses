@@ -7,9 +7,23 @@
   },
   "courses": [
     {
+      "id": 1,
+      "title": "Securing React Apps with Auth0",
+      "slug": "react-auth0-authentication-security",
+      "authorId": 1,
+      "category": "JavaScript"
+    },
+    {
       "id": 2,
-      "title": "React: The Big Picture",
+      "title": "React: The Big Picture wwwwwwwwwww",
       "slug": "react-big-picture",
+      "authorId": 1,
+      "category": "JavaScript"
+    },
+    {
+      "id": 3,
+      "title": "Creating Reusable React Components",
+      "slug": "react-creating-reusable-components",
       "authorId": 1,
       "category": "JavaScript"
     },
@@ -17,7 +31,7 @@
       "id": 4,
       "title": "Building a JavaScript Development Environment",
       "slug": "javascript-development-environment",
-      "authorId": 3,
+      "authorId": 1,
       "category": "JavaScript"
     },
     {
@@ -28,8 +42,15 @@
       "category": "JavaScript"
     },
     {
+      "id": 6,
+      "title": "Building Applications in React and Flux",
+      "slug": "react-flux-building-applications",
+      "authorId": 1,
+      "category": "JavaScript"
+    },
+    {
       "id": 7,
-      "title": "Clean Code: Writing Code for Humans sssssssssss",
+      "title": "Clean Code: Writing Code for Humans",
       "slug": "writing-clean-code-humans",
       "authorId": 1,
       "category": "Software Practices"
@@ -40,53 +61,6 @@
       "slug": "architecting-applications-dotnet",
       "authorId": 1,
       "category": "Software Architecture"
-    },
-    {
-      "id": 9,
-      "title": "Becoming an Outlier: Reprogramming the Developer Mind",
-      "slug": "career-reboot-for-developer-mind",
-      "authorId": 1,
-      "category": "Career"
-    },
-    {
-      "id": 10,
-      "title": "tttttttttt",
-      "authorId": 1,
-      "category": "tttttttttt",
-      "createdAt": 1638826582646,
-      "slug": "tttttttttt"
-    },
-    {
-      "id": 11,
-      "title": "ttttttttttttt",
-      "authorId": 2,
-      "category": "ttttttttttttt",
-      "createdAt": 1638827466335,
-      "slug": "ttttttttttttt"
-    },
-    {
-      "id": 12,
-      "title": "tttttttttttt",
-      "authorId": 2,
-      "category": "ttttttttttttt",
-      "createdAt": 1638827588486,
-      "slug": "tttttttttttt"
-    },
-    {
-      "id": 13,
-      "title": "ddddddddddd",
-      "authorId": 3,
-      "category": "ddddddddddddddddd",
-      "createdAt": 1638827625044,
-      "slug": "ddddddddddd"
-    },
-    {
-      "id": 14,
-      "title": "rrrrrrrrrrrrr",
-      "authorId": 3,
-      "category": "rrrrrrrrrrrrrrr",
-      "createdAt": 1638827758661,
-      "slug": "rrrrrrrrrrrrr"
     }
   ],
   "authors": [

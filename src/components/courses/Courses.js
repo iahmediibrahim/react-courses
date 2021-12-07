@@ -4,7 +4,10 @@ import * as courseActions from '../../redux/actions/courseActions';
 import * as authorActions from '../../redux/actions/authorActions';
 import { bindActionCreators } from 'redux';
 import CourseList from './CourseList';
+import Spinner from '../common/Spinner';
 import { Navigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 class Courses extends Component {
     state = {
         redirectToAddCoursePage: false,
@@ -19,25 +22,36 @@ class Courses extends Component {
         }
     }
 
-    deleteCourse = (courseId) => {
-        this.props.actions.deleteCourse(courseId);
+    deleteCourse = async (courseId) => {
+        toast.success('Course deleted.');
+        try {
+            await this.props.actions.deleteCourse(courseId);
+        } catch (error) {
+            toast.error('Delete failed.' + error.message, { autoClose: false });
+        }
     };
     render() {
         return (
             <React.Fragment>
                 {this.state.redirectToAddCoursePage && <Navigate to="/course" />}
-                <h2>Courses</h2>
-                <button
-                    className="btn btn-primary mb-3"
-                    onClick={() => this.setState({ redirectToAddCoursePage: true })}>
-                    Add Course
-                </button>
-                <CourseList courses={this.props.courses} onDeleteClick={this.deleteCourse} />
+                <h1 className="mt-5 text-center">Courses</h1>
+                {this.props.loading ? (
+                    <Spinner />
+                ) : (
+                    <React.Fragment>
+                        <button
+                            className="btn btn-primary my-4"
+                            onClick={() => this.setState({ redirectToAddCoursePage: true })}>
+                            Add Course
+                        </button>
+                        <CourseList courses={this.props.courses} onDeleteClick={this.deleteCourse} />
+                    </React.Fragment>
+                )}
             </React.Fragment>
         );
     }
 }
-function mapStateToProps({ courses, authors }) {
+function mapStateToProps({ courses, authors, apiCallsInProgress }) {
     return {
         courses:
             authors.length === 0
@@ -49,6 +63,7 @@ function mapStateToProps({ courses, authors }) {
                       };
                   }),
         authors,
+        loading: apiCallsInProgress > 0,
     };
 }
 function mapDispatchToProps(dispatch) {

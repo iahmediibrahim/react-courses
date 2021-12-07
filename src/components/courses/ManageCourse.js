@@ -5,10 +5,13 @@ import { loadAuthors } from '../../redux/actions/authorActions';
 import CourseForm from './CourseForm';
 import { newCourse as initialCourse } from '../../tools/mockData';
 import { useNavigate, useParams } from 'react-router-dom';
+import Spinner from '../common/Spinner';
+import { toast } from 'react-toastify';
 
 function ManageCourse({ initialCourse, courses, authors, loadCourses, loadAuthors, saveCourse }) {
     const [ course, setCourse ] = useState({ ...initialCourse });
     const [ errors, setErrors ] = useState({});
+    const [ saving, setSaving ] = useState(false);
     const navigate = useNavigate();
 
     useEffect(
@@ -30,11 +33,43 @@ function ManageCourse({ initialCourse, courses, authors, loadCourses, loadAuthor
     };
     const handleSave = (e) => {
         e.preventDefault();
-        saveCourse(course).then(() => {
-            navigate(`/courses`);
-        });
+        if (!formIsValid()) return;
+        setSaving(true);
+        saveCourse(course)
+            .then(() => {
+                toast.success('Course saved.');
+                navigate(`/courses`);
+            })
+            .catch((err) => {
+                setSaving(false);
+                setErrors({ onSave: err.message });
+            });
     };
-    return <CourseForm course={course} errors={errors} authors={authors} onChange={handleChange} onSave={handleSave} />;
+    function formIsValid() {
+        const { title, authorId, category } = course;
+        const errors = {};
+
+        if (!title) errors.title = 'Title is required.';
+        if (!authorId) errors.author = 'Author is required';
+        if (!category) errors.category = 'Category is required';
+
+        setErrors(errors);
+        // Form is valid if the errors object still has no properties
+        return Object.keys(errors).length === 0;
+    }
+
+    return authors.length === 0 || courses.length === 0 ? (
+        <Spinner />
+    ) : (
+        <CourseForm
+            course={course}
+            errors={errors}
+            authors={authors}
+            onChange={handleChange}
+            onSave={handleSave}
+            saving={saving}
+        />
+    );
 }
 function mapStateToProps({ courses, authors }, { slug }) {
     return {
