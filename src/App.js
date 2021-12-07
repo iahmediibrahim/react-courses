@@ -15,11 +15,11 @@ function App() {
             <div id="app" className="container-fluid">
                 <Header />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/courses" element={<Courses />} />
-                    <Route path="/course/:slug" element={<ManageCourse />} />
-                    <Route path="/course" element={<ManageCourse />} />
+                    <Route path="/react-courses/" element={<Home />} />
+                    <Route path="/react-courses/about" element={<About />} />
+                    <Route path="/react-courses/courses" element={<Courses />} />
+                    <Route path="/react-courses/course/:slug" element={<ManageCourse />} />
+                    <Route path="/react-courses/course" element={<ManageCourse />} />
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
                 <ToastContainer hideProgressBar autoClose={3000} />

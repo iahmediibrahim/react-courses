@@ -9,15 +9,15 @@ const Header = () => {
                 borderBottom: 'solid 1px',
                 paddingBottom: '1rem',
             }}>
-            <NavLink to="/" style={({ isActive }) => (isActive ? activeStyle : null)}>
+            <NavLink to="/react-courses/" style={({ isActive }) => (isActive ? activeStyle : null)}>
                 Home
             </NavLink>
             {' | '}
-            <NavLink to="/about" style={({ isActive }) => (isActive ? activeStyle : null)}>
+            <NavLink to="/react-courses/about" style={({ isActive }) => (isActive ? activeStyle : null)}>
                 About
             </NavLink>
             {' | '}
-            <NavLink to="/courses" style={({ isActive }) => (isActive ? activeStyle : null)}>
+            <NavLink to="/react-courses/courses" style={({ isActive }) => (isActive ? activeStyle : null)}>
                 Courses
             </NavLink>
         </nav>
